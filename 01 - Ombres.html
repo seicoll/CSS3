@@ -1,0 +1,145 @@
+<html>
+	<head>
+		<title>Exemple CSS3 Ombres</title>
+		<meta charset="utf-8">
+		<link href="styles.css" rel="stylesheet">
+		<style>
+			
+			.tipusOmbra {
+				float: left;
+				width:270px;
+				height:370px;
+				margin-left:40px;
+			}
+
+			.titol {
+				font-size: 24px;
+				font-weight: bold;
+						
+			}
+			
+			.subtitol {
+				font-size: 14px;
+				margin-bottom:9px;
+				
+			}
+			
+			.css{
+				font-family:consolas;
+				font-size:12px;
+				height:9em;
+			}
+			
+			.quadre {
+				width: 150px;
+				height: 150px;
+				background-color: rgb( 220, 220, 220 );			
+				border: 2px solid black;
+				border-radius: 50px;				
+			}
+			
+			#ombra1 {
+				box-shadow: 10px 10px 10px grey;
+			}
+
+			#ombra2 {
+				box-shadow: -10px -10px 10px grey;
+			}
+
+			#ombra3 {
+				box-shadow: 0px 0px 40px 10px green;
+			}
+			
+			#ombra4 {
+				box-shadow: 10px  10px 20px black, 
+						   -10px -10px 20px red;
+			}
+
+			#ombra5 {
+				box-shadow:  10px  10px 20px 0px red, 
+							 10px -10px 20px 10px green, 
+							-10px -10px 20px 20px blue,
+							-10px  10px 20px 30px yellow;
+			}
+
+			#ombra6 {
+				box-shadow: 10px 10px 10px grey inset;
+			}
+
+			#ombra7 {
+				box-shadow:  10px  10px 10px white inset,
+							-10px -10px 10px grey inset;
+			}
+
+			#ombra8 {
+				box-shadow: 10px 10px 10px grey inset,
+							10px 10px 10px grey;
+			}
+		</style>
+	</head>
+	<body>
+		<header><a href="http://www.w3schools.com/cssref/css3_pr_box-shadow.asp">box-shadow:</a> 
+		offset-x offset-y blur-radius spread-radius color inset|initial|inherit;</header>
+		<div class="tipusOmbra">
+			<div class="titol">Ombra 1</div>
+			<div class="subtitol">Amb desplaçament</div>
+			<div class="css">box-shadow: 10px 10px 10px grey;</div>
+			<div class="quadre" id="ombra1"></div>
+		</div>
+
+		<div class="tipusOmbra">
+			<div class="titol">Ombra 2</div>
+			<div class="subtitol">Amb desplaçament negatiu</div>
+			<div class="css">box-shadow: -10px -10px 10px grey;</div>
+			<div class="quadre" id="ombra2"></div>
+		</div>
+
+		<div class="tipusOmbra">
+			<div class="titol">Ombra 3</div>
+			<div class="subtitol">Centrada gran</div>
+			<div class="css">box-shadow: 0px 0px 40px 10px green;</div>
+			<div class="quadre" id="ombra3"></div>
+		</div>
+
+		<div class="tipusOmbra">
+			<div class="titol">Ombra 4</div>
+			<div class="subtitol">Múltiple</div>
+			<div class="css">box-shadow: 10px  10px 20px black, <br>
+						   -10px -10px 20px red;</div>
+			<div class="quadre" id="ombra4"></div>
+		</div>
+
+		<div class="tipusOmbra">
+			<div class="titol">Ombra 5</div>
+			<div class="subtitol">Múltiples colors i mides</div>
+			<div class="css">box-shadow:  10px  10px 20px 0px red, <br>
+							 10px -10px 20px 10px green, <br>
+							-10px -10px 20px 20px blue,<br>
+							-10px  10px 20px 30px yellow;</div>
+			<div class="quadre" id="ombra5"></div>
+		</div>
+
+		<div class="tipusOmbra">
+			<div class="titol">Ombra 6</div>
+			<div class="subtitol">Inserida</div>
+			<div class="css">box-shadow: 10px 10px 10px grey inset;</div>
+			<div class="quadre" id="ombra6"></div>
+		</div>
+
+		<div class="tipusOmbra">
+			<div class="titol">Ombra 7</div>
+			<div class="subtitol">Inserida múltiple (relleu)</div>
+			<div class="css">box-shadow:  10px  10px 10px white inset,<br>
+							-10px -10px 10px grey inset;</div>
+			<div class="quadre" id="ombra7"></div>
+		</div>
+
+		<div class="tipusOmbra">
+			<div class="titol">Ombra 8</div>
+			<div class="subtitol">Normal + inserida</div>
+			<div class="css">box-shadow: 10px 10px 10px grey inset,<br>
+							10px 10px 10px grey;</div>
+			<div class="quadre" id="ombra8"></div>
+		</div>
+	</body>
+</html>
