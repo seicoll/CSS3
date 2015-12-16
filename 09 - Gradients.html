@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Exemple CSS3 Gradients</title>
+  <link href="styles.css" rel="stylesheet">
+  <style>
+    header {
+      clear: both;
+    }
+    
+    h1 {
+      font-size: 1.5em;
+      margin: 5px;
+    }
+    
+    h2{
+      clear:both;
+    }
+    
+    .gradient {
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 20px;
+      box-shadow: 0px 10px 20px grey;
+      width: 250px;
+      margin: 10px;
+      padding: 15px;
+      float: left;
+    }
+    
+    .titol {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .subtitol {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .css {
+      font-family: consolas;
+      font-size: 10px;
+      height: 4em;
+    }
+    
+    div[id^="gradient"] {
+      width: 100%;
+      height: 100px;
+      border: solid 1px black;
+    }
+    
+    #gradient1 {
+      background: linear-gradient(chocolate, white);
+    }
+    
+    #gradient2 {
+      background: linear-gradient(to top, chocolate, white);
+    }
+    
+    #gradient3 {
+      background: linear-gradient(to right, chocolate, white);
+    }
+    
+    #gradient4 {
+      background: linear-gradient(to left, chocolate, white);
+    }
+    
+    #gradient5 {
+      background: linear-gradient(to bottom right, chocolate, white);
+    }
+    
+    #gradient6 {
+      background: linear-gradient(45deg, chocolate, white);
+    }
+    
+    #gradient7 {
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)
+    }
+    
+    #gradient8 {
+      background: linear-gradient(to right, red 30%, orange 50%, yellow, green, blue, indigo, violet)
+    }
+    
+    #gradientradial1 {
+      background: radial-gradient(circle, yellow, tomato, red);
+    }
+    
+    #gradientradial2 {
+      background: radial-gradient(ellipse, yellow, tomato, red);
+    }
+    
+    #gradientradial3 {
+      background: radial-gradient(ellipse farthest-corner at 45px 45px, yellow, tomato, red);
+    }
+    
+    #gradientradial4 .eye {
+      margin-left: 80px;
+      margin-top: 15px;
+      width: 75px;
+      height: 75px;
+      border-radius: 100%;
+      background-color: #eee;
+      box-shadow: inset rgba(0, 0, 0, .4) 0 -1px 3px 1px, inset rgba(0, 0, 0, .5) 0 -5px 20px, rgba(0, 0, 0, .5) 0 -5px 10px, rgba(255, 255, 255, .5) 0 5px 10px;
+      background-repeat: no-repeat;
+      background-image: radial-gradient( circle, rgba(0, 0, 0, 1) 12%, hsl(50, 50%, 50%) 22%, hsl(10, 50%, 30%) 40%, rgba(255, 255, 255, 0) 50%);
+    }
+    
+    #gradientrepeticio1 {
+      background: repeating-linear-gradient(-45deg, tomato, tomato 5px, white 5px, white 10px);
+    }
+    
+    #gradientrepeticio2 {
+      background: repeating-linear-gradient(to bottom, tomato, tomato 10px, rgb(252, 38, 0) 10px, rgb(252, 38, 0) 20px);
+    }
+    
+    #gradientrepeticio3 {
+      background: repeating-radial-gradient(yellow 5px, tomato 10px, red 20px, yellow 25px);
+    }
+    
+    #gradientrepeticio4 {
+      background-color: #fff;
+      background-image: linear-gradient(0deg, transparent 50%, rgba(255, 99, 71, 0.6) 50%), linear-gradient(90deg, transparent 50%, rgba(255, 99, 71, 0.6) 50%);
+      background-size: 30px 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Gradients linears</h1> background: <a href="http://www.w3schools.com/css/css3_gradients.asp">linear-gradient</a> ([angle | direction], color-stop1, color-stop2, ...);
+  </header>
+
+  <div class="gradient">
+    <div class="titol">Gradient linear 1</div>
+    <div class="subtitol">De dalt a baix (per defecte)</div>
+    <div class="css">background-image:
+      <br>&nbsp;&nbsp;linear-gradient(chocolate,white);</div>
+    <div id="gradient1"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient linear 2</div>
+    <div class="subtitol">De baix a dalt</div>
+    <div class="css">background-image:
+      <br>&nbsp;&nbsp;linear-gradient(to top,chocolate,white);</div>
+    <div id="gradient2"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient linear 3</div>
+    <div class="subtitol">D'esquerra a dreta</div>
+    <div class="css">background-image:
+      <br>&nbsp;&nbsp;linear-gradient(to right,chocolate,white);</div>
+    <div id="gradient3"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient linear 4</div>
+    <div class="subtitol">De dreta a esquerra</div>
+    <div class="css">background-image:
+      <br>&nbsp;&nbsp;linear-gradient(to left,chocolate,white);</div>
+    <div id="gradient4"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient linear 5</div>
+    <div class="subtitol">Diagonal</div>
+    <div class="css">background-image:
+      <br>&nbsp;&nbsp;linear-gradient(to bottom right,chocolate,white);</div>
+    <div id="gradient5"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient linear 6</div>
+    <div class="subtitol">Utilitzant angles</div>
+    <div class="css">background-image:
+      <br>&nbsp;&nbsp;linear-gradient(45deg,chocolate,white);</div>
+    <div id="gradient6"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient linear 7</div>
+    <div class="subtitol">Multiples colors</div>
+    <div class="css">background-image:
+      <br>&nbsp;&nbsp;</div>
+    <div id="gradient7"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient linear 8</div>
+    <div class="subtitol">Multiples colors i stops</div>
+    <div class="css">background-image:
+      <br>&nbsp;&nbsp;</div>
+    <div id="gradient8"></div>
+  </div>
+
+  <header>
+    <h1>Gradients radials</h1> background: <a href="http://www.w3schools.com/css/css3_gradients.asp">linear-gradient</a> (shape size at position, color-stop1, color-stop2 ...);
+  </header>
+
+  <div class="gradient">
+    <div class="titol">Gradient radial 1</div>
+    <div class="subtitol">Cercle</div>
+    <div class="css">background:
+      <br>radial-gradient(circle, yellow, tomato, red);</div>
+    <div id="gradientradial1"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient radial 1</div>
+    <div class="subtitol">El·lipse</div>
+    <div class="css">background:
+      <br>radial-gradient(ellipse, yellow, tomato, red);</div>
+    <div id="gradientradial2"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient radial 3</div>
+    <div class="subtitol">El·lipse amb posició i tamany </div>
+    <div class="css">background:
+      <br>radial-gradient(ellipse farthest-corner at 45px 45px, yellow, tomato, red);</div>
+    <div id="gradientradial3"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Gradient radial 4</div>
+    <div class="subtitol">Simulació ull</div>
+    <div class="css"></div>
+    <div id="gradientradial4">
+      <div class="eye"></div>
+    </div>
+  </div>
+
+  <header>
+    <h1>Repetició de gradients </h1> background: repeating-linear-gradient ([angle | direction], color-stop1, color-stop2 ...);
+  </header>
+
+  <div class="gradient">
+    <div class="titol">Repetició de gradient 1</div>
+    <div class="subtitol">Ratllat en angle</div>
+    <div class="css">background:
+      <br>repeating-linear-gradient(-45deg, tomato, tomato 5px, white 5px, white 10px);</div>
+    <div id="gradientrepeticio1"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Repetició de gradient 2</div>
+    <div class="subtitol">Ratllat en horitzontal</div>
+    <div class="css">background: repeating-linear-gradient(to bottom, tomato, tomato 10px, rgb(252, 38, 0) 10px, rgb(252, 38, 0) 20px);</div>
+    <div id="gradientrepeticio2"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Repetició de gradient 3</div>
+    <div class="subtitol">Repetició gradient radial</div>
+    <div class="css">background:
+      <br>repeating-radial-gradient(yellow 5px, tomato 10px, red 20px, yellow 25px);</div>
+    <div id="gradientrepeticio3"></div>
+  </div>
+
+  <div class="gradient">
+    <div class="titol">Repetició de gradient 4</div>
+    <div class="subtitol">Simulació patró</div>
+    <div class="css"></div>
+    <div id="gradientrepeticio4"></div>
+  </div>
+
+  <h2>Generadors Gradients</h2>
+  <a href="http://www.colorzilla.com/gradient-editor/">http://www.colorzilla.com/gradient-editor/</a>
+  <br>
+  <a href="http://www.cssmatic.com/gradient-generator">http://www.cssmatic.com/gradient-generator</a>
+  <br>
+  <a href="http://www.cssportal.com/css-gradient-generator/">http://www.cssportal.com/css-gradient-generator/</a>
+  <br>
+
+  <h2>Gradient Patterns</h2>
+  <a href="http://lea.verou.me/css3patterns/">http://lea.verou.me/css3patterns/</a>
+  <br>
+  <a href="http://enjoycss.com/gallery/gradient_patterns">http://enjoycss.com/gallery/gradient_patterns</a>
+</body>
+
+</html>

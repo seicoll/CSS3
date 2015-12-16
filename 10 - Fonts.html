@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Exemple CSS3 Fonts</title>
+  <link href="styles.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+  <style>
+    /*Google Web Fonts*/
+    @import url(https://fonts.googleapis.com/css?family=Bangers);
+   
+    /*Indiquem al navegador el nom de la font i on obternir-la*/
+    @font-face {
+      font-family: 'frijole';
+      src: url('imatges/Frijole.ttf');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    /*Indiquem diferents formats de font*/
+    @font-face {
+      font-family: 'destroy';
+      src: url('imatges/destroy.eot');
+      src: url('imatges/destroy.woff2') format('woff2'), 
+          url('imatges/destroy.woff') format('woff'), 
+          url('imatges/destroy.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    #exemple1 {
+      font-family: frijole;
+    }
+    
+    #exemple2 {
+      font-family: destroy;
+    }
+    
+    #exemple3 {
+      font-family: Bangers;
+      font-size: 4em;
+    }
+    
+    #exemple4 {
+      font-family: 'Fredericka the Great';
+      font-size: 3em;
+    }
+    
+    h2 {
+      clear: both;
+      padding-top: 1em;
+    }
+    
+    li {
+      line-height: 2em;
+    }
+    
+    .css {
+      height: 80px;
+      font-size: 11px;
+    }
+    
+    blockquote{
+      line-height:1.5em;
+      margin-top:0em;
+      margin-bottom:0em;
+    }
+  </style>
+</head>
+
+<body>
+  <header>WebFonts</header>
+    <div class="titol">
+      <br><a href="http://www.w3schools.com/cssref/css3_pr_font-face_rule.asp">@font-face</a> {
+      <blockquote>
+        font-family: "FontName";
+        <br> src: url('fontfile.eot');
+        <br>src: url('fontfile.svg#FontName') format('svg'),
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;url('fontfile.ttf') format('truetype'),
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;url('fontfile.woff') format('woff')</blockquote>};
+    </div>
+  
+  <div class="exemple">
+    <div class="titol">@font-face</div>
+    <div class="subtitol"></div>
+    <div class="css">@font-face {<Br>
+      &nbsp;&nbsp;&nbsp;font-family: 'frijole';<br>
+      &nbsp;&nbsp;&nbsp;src: url('imatges/Frijole.ttf');<br>
+      &nbsp;&nbsp;&nbsp;font-weight: normal;<br>
+      &nbsp;&nbsp;&nbsp;font-style: normal;<br>
+    }</div>
+    <div id="exemple1">Exemple</div>
+  </div>
+  <div class="exemple">
+    <div class="titol">@font-face</div>
+    <div class="subtitol"></div>
+    <div class="css"></div>
+    <div id="exemple2">Exemple</div>
+  </div>
+  <div class="exemple">
+    <div class="titol">Google Web Fonts</div>
+    <div class="subtitol">Import google font</div>
+    <div class="css">@import url(https://fonts.googleapis.com/css?family=Bangers);</div>
+    <div id="exemple3">Exemple</div>
+  </div>
+  <div class="exemple">
+    <div class="titol">Google Web fonts</div>
+    <div class="subtitol">Link google Font</div>
+    <div class="css">&ltlink href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'&gt</div>
+    <div id="exemple4">Exemple</div>
+  </div>
+
+
+
+  <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+  <h2>Web Fonts</h2>
+  <ul>
+    <li>Google Fonts: <a href="https://www.google.com/fonts">www.google.com/fonts</a></li>
+    <li>Font Squirrel: <a href="http://www.fontsquirrel.com/">www.fontsquirrel.com</a></li>
+    <li>Fontex.org: <a href="http://www.fontex.org/">www.fontex.org</a></li>
+    <li>The Open Font Library: <a href="https://fontlibrary.org">fontlibrary.org</a></li>
+    <li>The League of Moveable Type: <a href="http://www.theleagueofmoveabletype.com">www.theleagueofmoveabletype.com</a></li>
+  </ul>
+  <h2>Generador de formats de font</h2>
+  <a href="http://www.fontsquirrel.com/tools/webfont-generator">www.fontsquirrel.com/tools/webfont-generator</a>
+</body>
+
+</html>
