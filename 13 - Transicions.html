@@ -1,0 +1,159 @@
+<html>
+
+<head>
+	<title>Exemple 16 de CSS</title>
+	<meta charset="UTF-8">
+	<link href="styles.css" rel="stylesheet">
+	<style>
+		.transicio {
+			position: relative;
+			background-color: white;
+			border: 2px solid black;
+			border-radius: 20px;
+			box-shadow: 0px 10px 20px grey;
+			width: 300px;
+			height: 400px;
+			margin: 10px;
+			float: left;
+		}
+		
+		.transicio h1 {
+			width: 100%;
+			margin: 10px 0 0 0;
+			text-align: center;
+			font-family: Arial;
+			font-weight: bold;
+			font-size: 32px;
+		}
+		
+		.transicio h2 {
+			width: 100%;
+			margin: 5px 0 0 0;
+			text-align: center;
+			font-family: Arial;
+			font-weight: normal;
+			font-size: 16px;
+		}
+		
+		.transicio div {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			/*Apliquem una transició a totes les propietats */
+			transition: all 1s;
+			font-family: Arial;
+			font-size: 90px;
+			text-align: center;
+			color: white;
+		}
+		
+		.transicio button {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			border-radius: 10px;
+		}
+		
+		.transicio .info {
+			font-family: Arial;
+			font-size: 14px;
+			position: absolute;
+			top: 80px;
+			width: 100%;
+			text-align: center;
+		}
+		
+		#quadre1 {
+			background-color: green;
+			left: 100px;
+			top: 100px;
+		}
+		
+		#quadre2 {
+			background-color: red;
+			font-size: 130px;
+			width: 150px;
+			height: 150px;
+			left: 75px;
+			top: 125px;
+		}
+		
+		#quadre3 {
+			background-color: orange;
+			left: 100px;
+			top: 150px;
+		}
+		
+		#quadre4 {
+			background-color: blue;
+			font-size: 130px;
+			width: 150px;
+			height: 150px;
+			left: 75px;
+			top: 100px;
+			top: 125px;
+		}
+		
+		#quadre5 {
+			background-color: violet;
+			left: 25px;
+			top: 75px;
+		}
+		
+		#quadre6 {
+			background-color: grey;
+			left: 25px;
+			top: 75px;
+		}
+	</style>
+</head>
+
+<body>
+	<header><a href="http://www.w3schools.com/css/css3_transitions.asp">transition:</a> property duration timing-function delay;</header>
+	<h4>Són efectes que permeten un a element canviar gradualment d'un estil a un altre.<br>
+		Per a això, ha d'especificar dues coses:
+		<ul><li> la propietat CSS on afegim un efecte</li>
+		<li>la durada de l'efecte</li></ul>
+</h4>
+	<h3>En el exemples següents s'ha aplicat la transacció següent: </h3>
+	<h1>transition: all 1s;</h1>
+
+
+	<div class="transicio">
+		<h1>POSICIÓ</h1>
+		<div id="quadre1" onClick="this.style.top='250px';">A</div>
+		<button onClick="quadre1.style.top='100px';">REINICIA</button>
+	</div>
+
+	<div class="transicio">
+		<h1>ROTACIÓ</h1>
+		<div id="quadre2" onClick="this.style.transform='rotate(135deg)';">A</div>
+		<button onClick="quadre2.style.transform='rotate(0deg)';">REINICIA</button>
+	</div>
+
+	<div class="transicio">
+		<h1>REDIMENSIÓ</h1>
+		<div id="quadre3" onClick="this.style.transform='scale(2,2)';">A</div>
+		<button onClick="quadre3.style.transform='scale(1,1)';">REINICIA</button>
+	</div>
+
+	<div class="transicio">
+		<h1>CANVI DE COLOR</h1>
+		<div id="quadre4" onClick="this.style.backgroundColor='orange';">A</div>
+		<button onClick="quadre4.style.backgroundColor='blue';">REINICIA</button>
+	</div>
+
+	<div class="transicio">
+		<h1>MÚLTIPLE 1</h1>
+		<div id="quadre5" onClick="this.style.transform='translate(100px, 100px) scale(2,2) rotate(180deg)'; this.style.backgroundColor='orange';">A</div>
+		<button onClick="quadre5.style.transform=''; quadre5.style.backgroundColor='violet';">REINICIA</button>
+	</div>
+
+	<div class="transicio">
+		<h1>MÚLTIPLE 2</h1>
+		<div id="quadre6" onClick="this.style.transform='skew(-25deg, 0deg) translate(200px, 150px) rotate(-90deg)'; this.style.backgroundColor='orange';">A</div>
+		<button onClick="quadre6.style.transform=''; quadre6.style.backgroundColor='grey';">REINICIA</button>
+	</div>
+</body>
+
+</html>

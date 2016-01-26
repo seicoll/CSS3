@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Exemple Transform: rotate() de CSS</title>
+		<style>	
+			body {
+				background-color: lightgrey;
+				overflow: hidden;			
+			}
+
+			#wiiremote {
+				margin: 200px auto;
+				width: 150px;
+				height: 450px;	
+				background-image: url("imatges/wiiremote.png");			
+				transform-origin: 75px 350px;				
+			}
+			
+			#irbeam {
+				position: relative;
+				top: -785px;
+				left: 50px;
+				z-index: -1;
+				width: 50px;
+				height: 800px;
+				background-color: rgb(200,225,255);
+				opacity: 0;
+			}
+			
+		</style>
+
+		<script>
+			document.onmousemove = pintarControlWii;
+			document.onmousedown = function() {
+				document.getElementById("irbeam").style.opacity = "0.5";
+			};			
+			
+			document.onmouseup = function() {
+				document.getElementById("irbeam").style.opacity = "0";
+			};			
+			
+
+			function pintarControlWii(e)
+			{
+				var x = e.clientX;
+				/*var y = e.clientY;*/
+				
+				var angle = ((x*180) / window.innerWidth) - 90;
+				
+				document.getElementById("wiiremote").style.transform = 'rotate(' + angle +'deg)';
+			}
+		</script>
+	</head>
+	<body>		
+		<div id="wiiremote">			
+			<div id="irbeam"></div>
+		</div>
+	</body>
+</html>

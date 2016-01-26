@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<title>Exemple 18 de CSS</title>
+		<meta charset="UTF-8">
+		<style>
+			body {
+				background-color: rgb( 200, 200, 200 );
+			}
+			
+			.transicio {
+				position: relative;
+				background-color: white;
+				border: 2px solid black;
+				border-radius: 20px;
+				box-shadow: 0px 10px 20px grey;
+				width: 500px;
+				height: 250px;
+				margin: 10px;
+				float: left;
+			}
+			
+			.transicio h1 {
+				width: 100%;
+				margin: 10px 0 0 20px;
+				text-align: left;
+				font-family: Arial;
+				font-weight: bold;
+				font-size: 32px;
+			}
+			
+			.transicio h2 {
+				width: 100%;
+				margin: 5px 0 0 20px;
+				text-align: left;
+				font-family: Arial;
+				font-weight: normal;
+				font-size: 16px;
+			}
+			
+			.transicio div {
+				position: absolute;
+				width: 100px;
+				height: 100px;		
+				transition: all 3s;	
+				font-family: Arial;
+				font-size: 90px;
+				text-align: center;
+				color: white;
+				background-color: green;
+				left: 25px;
+				top: 100px;				
+			}
+
+			.transicio button {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				border-radius: 10px;
+			}
+			
+			.transicio .info {
+				font-family: Arial;
+				font-size: 14px;
+				position: absolute;
+				top: 80px;
+				/* left: 10px;	*/
+				width: 100%;
+				text-align: center;
+			}
+			
+			#quadre1 { 
+				background-color: green;
+				transition-timing-function: ease;
+			}
+
+			#quadre2 { 
+				background-color: red;
+				transition-timing-function: linear;
+			}
+
+			#quadre3 { 
+				background-color: orange;
+				transition-timing-function: ease-in;
+			}
+
+			#quadre4 { 
+				background-color: blue;
+				transition-timing-function: ease-out;
+			}
+
+			#quadre5 { 
+				background-color: violet;
+				transition-timing-function: ease-in-out;
+			}
+
+			#quadre6 { 
+				background-color: grey;
+				transition-timing-function: cubic-bezier(.17,.67,.83,.67);
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="transicio">
+			<h1>EASE</h1><h2>transition-timing-function: ease</h2>
+			<div id="quadre1" onClick="this.style.left='375px';"></div>
+			<button onClick="quadre1.style.left='25px';">REINICIA</button>			
+		</div>
+
+		<div class="transicio">
+			<h1>LINEAR</h1><h2>transition-timing-function: linear</h2>
+			<div id="quadre2" onClick="this.style.left='375px';"></div>
+			<button onClick="quadre2.style.left='25px';">REINICIA</button>			
+		</div>
+
+		<div class="transicio">
+			<h1>EASE-IN</h1><h2>transition-timing-function: ease-in</h2>
+			<div id="quadre3" onClick="this.style.left='375px';"></div>
+			<button onClick="quadre3.style.left='25px';">REINICIA</button>			
+		</div>
+
+		<div class="transicio">
+			<h1>EASE-OUT</h1><h2>transition-timing-function: ease-out</h2>
+			<div id="quadre4" onClick="this.style.left='375px';"></div>
+			<button onClick="quadre4.style.left='25px';">REINICIA</button>			
+		</div>
+
+		<div class="transicio">
+			<h1>EASE-IN-OUT</h1><h2>transition-timing-function: ease-in-out</h2>
+			<div id="quadre5" onClick="this.style.left='375px';"></div>
+			<button onClick="quadre5.style.left='25px';">REINICIA</button>			
+		</div>
+
+		<div class="transicio">
+			<h1>CUBIC-BEZIER</h1><h2>transition-timing-function: cubic-bezier(n,n,n,n)<br>Generador a <a href="http://cubic-bezier.com/" target="_blank">http://cubic-bezier.com/</a></h2>
+			<div id="quadre6" onClick="this.style.left='375px';"></div>
+			<button onClick="quadre6.style.left='25px';">REINICIA</button>			
+		</div>
+	</body>
+</html>

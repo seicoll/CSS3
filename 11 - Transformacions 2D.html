@@ -1,0 +1,234 @@
+<html>
+	<head>
+		<title>Exemple CSS3 Transformacions 2D</title>
+		<meta charset="UTF-8">
+		<link href="styles.css" rel="stylesheet">
+		<style>
+		
+			.transformacio {
+				position: relative;
+				background-color: white;
+				border: 2px solid black;
+				border-radius: 20px;
+				box-shadow: 0px 10px 20px grey;
+				width: 300px;
+				height: 400px;
+				margin: 10px;
+				float: left;
+			}
+			
+			.transformacio h1 {
+				width: 100%;
+				margin: 10px 0 0 0;
+				text-align: center;
+				font-family: Arial;
+				font-weight: bold;
+				font-size: 32px;
+			}
+			
+			.transformacio h2 {
+				width: 100%;
+				margin: 5px 0 0 0;
+				text-align: center;
+				font-family: Arial;
+				font-weight: normal;
+				font-size: 16px;
+			}
+			
+				.transformacio div.css
+			{
+				text-align: center;
+				position:static;
+			}
+			
+			.transformacio div {
+				position: absolute;
+			}
+
+			.transformacio button {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				border-radius: 5px;
+				padding:7px;
+			}
+			
+			.transformacio .info {
+				font-family: Arial;
+				font-size: 14px;
+				position: absolute;
+				top: 80px;
+				/* left: 10px;	*/
+				width: 100%;
+				text-align: center;
+			}
+			
+			#quadre1 { 
+				width: 150px;
+				height: 150px;				
+				background-color: green;
+				transform-origin: 75px 75px;
+				left: 75px;
+				top: 150px;				
+			}
+
+			#quadre2 { 
+				width: 100px;
+				height: 100px;				
+				background-color: red;
+				transform-origin: 0px 0px;
+				left: 150px;
+				top: 250px;				
+			}
+
+			#quadre3 { 
+				width: 100px;
+				height: 100px;				
+				background-color: yellow;
+				left: 10px;
+				top: 280px;				
+			}
+
+			#quadre4 { 
+				width: 100px;
+				height: 100px;				
+				background-color: blue;
+				left: 100px;
+				top: 200px;				
+			}
+
+			#quadre5 { 
+				width: 150px;
+				height: 150px;				
+				background-color: violet;
+				left: 75px;
+				top: 175px;				
+			}
+
+			#quadre6 { 
+				width: 150px;
+				height: 150px;				
+				background-color: grey;
+				left: 75px;
+				top: 175px;				
+			}
+		</style>
+	</head>
+	<body>
+		<header><a href="http://www.w3schools.com/css/css3_2dtransforms.asp">transform:</a> transform-functions;</header>
+		<div class="transformacio">
+			<h1>rotate(xº)</h1><h2>rotació, centrada a l'objecte</h2>
+			<div class="css">transform-origin: 75px 75px;</div>
+			<div id="quadre1" onClick="canviaFons(this); "></div>
+			<button onClick="anim1=!anim1">ANIMACIÓ</button>
+			<div class="info" id="info1"></div>
+		</div>
+
+		<div class="transformacio">
+			<h1>rotate(xº)</h1><h2>rotació, centrada en un vèrtex</h2>
+			<div class="css">transform-origin: 0px 0px;</div>
+			<div id="quadre2" onClick="canviaFons(this)"></div>
+			<button onClick="anim2=!anim2">ANIMACIÓ</button>
+			<div class="info" id="info2"></div>
+		</div>
+
+		<div class="transformacio">
+			<h1>translate(x,y)</h1><h2>desplaça l'objecte</h2>
+			<div id="quadre3" onClick="canviaFons(this)"></div>
+			<button onClick="anim3=!anim3">ANIMACIÓ</button>
+			<div class="info" id="info3"></div>
+		</div>
+
+		<div class="transformacio">
+			<h1>scale(x,y)</h1><h2>canvia la mida per cada eix</h2>
+			<div id="quadre4" onClick="canviaFons(this)">Text</div>
+			<button onClick="anim4=!anim4">ANIMACIÓ</button>
+			<div class="info" id="info4"></div>
+		</div>
+		
+		<div class="transformacio">
+			<h1>skew(xº,yº)</h1><h2>inclina un nombre de graus cada eix</h2>
+			<div id="quadre5" onClick="canviaFons(this)">Text</div>
+			<button onClick="anim5=!anim5">ANIMACIÓ</button>
+			<div class="info" id="info5"></div>
+		</div>
+		
+		<div class="transformacio">
+			<h1>rotate() + skew()</h1><h2>múltiples transformacions simultànies</h2>
+			<div id="quadre6" onClick="canviaFons(this)">Text</div>
+			<button onClick="anim6=!anim6">ANIMACIÓ</button>
+			<div class="info" id="info6"></div>
+		</div>
+		
+		<script>
+			
+			var x1 = 0, inc1 = 0.5, limit1 = 360, anim1 = false;
+			var x2 = 0, inc2 = 0.5, limit2 = 360, anim2 = false;
+			var x3 = 0, inc3 = 0.5, limit3 = 180, anim3 = false;
+			var x4 = 0, inc4 = 0.5, limit4 = 320, anim4 = false;
+			var x5 = 0, inc5 = 0.5, limit5 = 180, anim5 = false;
+			var x6 = 0, inc6 = 0.5, limit6 = 180, anim6 = false;
+			
+			function canviaFons ( obj )
+			{
+				if ( obj.style.backgroundImage == "" )
+					obj.style.backgroundImage = "url('imatges/caribbean_beach.jpg')";
+				else
+					obj.style.backgroundImage = "";
+			}
+			
+			setInterval( 
+				function () 
+				{ 
+					if ( anim1 ) 
+					{
+						x1 = ( x1 + inc1 ) % limit1;
+						document.getElementById("quadre1").style.transform = "rotate(" + x1 + "deg)";					
+						document.getElementById("info1").innerHTML = document.getElementById("quadre1").style.transform;
+					}
+					
+					if ( anim2 ) 
+					{
+						x2 = ( x2 + inc2 ) % limit2;
+						document.getElementById("quadre2").style.transform = "rotate(" + x2 + "deg)";
+						document.getElementById("info2").innerHTML = document.getElementById("quadre2").style.transform;
+					}
+					
+					if ( anim3 ) 
+					{
+						x3 = ( x3 + inc3 ) % ( limit3 + 1 );
+						if ( x3 == limit3 || x3 == 0 ) inc3 = -inc3;
+						document.getElementById("quadre3").style.transform = "translate(" + parseInt( x3 ) + "px, " + parseInt( -x3 ) + "px)";
+						document.getElementById("info3").innerHTML = document.getElementById("quadre3").style.transform;
+					}	
+					
+					if ( anim4 ) 
+					{
+						x4 = ( x4 + inc4 ) % ( limit4 + 1 );
+						if ( x4 == limit4 || x4 == 0 ) inc4 = -inc4;
+						document.getElementById("quadre4").style.transform = "scale(" + Math.round( ( x4 / 200 ) * 100 ) / 100 + ", " + Math.round( ( x4 / 150 ) * 100 ) / 100 + ")";
+						document.getElementById("info4").innerHTML = document.getElementById("quadre4").style.transform;
+					}
+					
+					if ( anim5 ) 
+					{
+						x5 = ( x5 + inc5 ) % ( limit5 + 1 );
+						if ( x5 == limit5 || x5 == 0 ) inc5 = -inc5;
+						document.getElementById("quadre5").style.transform = "skew(" + Math.round( x5 / 4 ) + "deg, 0deg)";
+						document.getElementById("info5").innerHTML = document.getElementById("quadre5").style.transform;
+					}
+					
+					if ( anim6 ) 
+					{
+						x6 = ( x6 + inc6 ) % ( limit6 + 1 );
+						if ( x6 == limit6 || x6 == 0 ) inc6 = -inc6;
+						document.getElementById("quadre6").style.transform = "skew(" + Math.round( -x6 / 4 ) + "deg, 0deg) rotate(" + parseInt( x6 / 4 ) + "deg)";
+						document.getElementById("info6").innerHTML = document.getElementById("quadre6").style.transform;
+					}
+
+				}, 1
+			);	
+				
+		</script>
+	</body>
+</html>

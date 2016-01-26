@@ -1,0 +1,178 @@
+<html>
+	<head>
+		<title>Exemple 19 de CSS</title>
+		<meta charset="UTF-8">
+		<style>
+			body {
+				background-color: rgb( 200, 200, 200 );
+			}
+			
+			.transformacio {
+				position: relative;
+				background-color: white;
+				border: 2px solid black;
+				border-radius: 20px;
+				box-shadow: 0px 10px 20px grey;
+				width: 300px;
+				height: 400px;
+				margin: 10px;
+				float: left;
+				perspective: 300px;
+			}
+			
+			.transformacio h1 {
+				width: 100%;
+				margin: 10px 0 0 0;
+				text-align: center;
+				font-family: Arial;
+				font-weight: bold;
+				font-size: 32px;
+			}
+			
+			.transformacio h2 {
+				width: 100%;
+				margin: 5px 0 0 0;
+				text-align: center;
+				font-family: Arial;
+				font-weight: normal;
+				font-size: 16px;
+			}
+			
+			.transformacio .quadre {
+				position: absolute;				
+				width: 150px;
+				height: 150px;				
+				left: 75px;
+				top: 150px;				
+			}
+
+			.transformacio button {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+				border-radius: 10px;
+			}
+			
+			.transformacio input {
+				position: relative;
+				top: 300px;
+				left: 10px;
+				border-radius: 10px;
+			}
+			
+			#quadre1 { background-color: green;	}
+			#quadre2 { background-color: red; }
+			#quadre3 { background-color: blue; }
+			#quadre4 { background-color: yellow; backface-visibility: hidden; }
+			#quadre5 { background-color: violet; }
+			#quadre6 { background-color: grey; }
+
+		</style>
+	</head>
+	<body>
+		<div class="transformacio" id="tr1">
+			<h1>rotateX(xº)</h1><h2>rotació en 3D sobre l'eix X</h2>
+			<div class="quadre" id="quadre1" onClick="canviaFons(this); "></div>
+			<button onClick="anim1=!anim1">ANIMACIÓ</button>
+			<input type="button" value="1" onClick="tr1.style.perspective='0';">
+			<input type="button" value="2" onClick="tr1.style.perspective='300';">
+			<input type="button" value="3" onClick="tr1.style.perspective='150';">
+		</div>
+
+		<div class="transformacio" id="tr2">
+			<h1>rotateY(xº)</h1><h2>rotació en 3D sobre l'eix Y</h2>
+			<div class="quadre" id="quadre2" onClick="canviaFons(this)"></div>
+			<button onClick="anim2=!anim2">ANIMACIÓ</button>
+			<input type="button" value="1" onClick="tr2.style.perspective='0';">
+			<input type="button" value="2" onClick="tr2.style.perspective='300';">
+			<input type="button" value="3" onClick="tr2.style.perspective='150';">
+		</div>
+
+		<div class="transformacio" id="tr3">
+			<h1>rotateZ(º)</h1><h2>rotació en 3D sobre l'eix Z</h2>
+			<div class="quadre" id="quadre3" onClick="canviaFons(this)"></div>
+			<button onClick="anim3=!anim3">ANIMACIÓ</button>
+			<input type="button" value="1" onClick="tr3.style.perspective='0';">
+			<input type="button" value="2" onClick="tr3.style.perspective='300';">
+			<input type="button" value="3" onClick="tr3.style.perspective='150';">
+		</div>
+
+		<div class="transformacio">
+			<h1>Ocultar cara posterior</h1><h2>backface-visibility: hidden</h2>
+			<div class="quadre" id="quadre4" onClick="canviaFons(this)"></div>
+			<button onClick="anim4=!anim4">ANIMACIÓ</button>
+		</div>
+		
+		<div class="transformacio">
+			<h1>rotateX + rotateY</h1><h2>rotació simultània dels eixos X i Y</h2>
+			<div class="quadre" id="quadre5" onClick="canviaFons(this)"></div>
+			<button onClick="anim5=!anim5">ANIMACIÓ</button>
+		</div>
+		
+		<div class="transformacio">
+			<h1>rotateX + Y + Z</h1><h2>rotació simultània dels eixos X, Y i Z</h2>
+			<div class="quadre" id="quadre6" onClick="canviaFons(this)"></div>
+			<button onClick="anim6=!anim6">ANIMACIÓ</button>
+		</div>
+		
+		<script>
+			
+			var x1 = 0, inc1 = 0.25, limit1 = 360, anim1 = false;
+			var x2 = 0, inc2 = 0.25, limit2 = 360, anim2 = false;
+			var x3 = 0, inc3 = 0.25, limit3 = 360, anim3 = false;
+			var x4 = 0, inc4 = 0.25, limit4 = 360, anim4 = false;
+			var x5 = 0, inc5 = 0.25, limit5 = 360, anim5 = false;
+			var x6 = 0, inc6 = 0.25, limit6 = 360, anim6 = false;
+			
+			function canviaFons ( obj )
+			{
+				if ( obj.style.backgroundImage == "" )
+					obj.style.backgroundImage = "url('imatges/caribbean_beach.jpg')";
+				else
+					obj.style.backgroundImage = "";
+			}
+			
+			setInterval( 
+				function () 
+				{ 
+					if ( anim1 ) 
+					{
+						x1 = ( x1 + inc1 ) % limit1;
+						document.getElementById("quadre1").style.transform = "rotateX(" + x1 + "deg)";					
+					}
+					
+					if ( anim2 ) 
+					{
+						x2 = ( x2 + inc2 ) % limit2;
+						document.getElementById("quadre2").style.transform = "rotateY(" + x2 + "deg)";
+					}
+					
+					if ( anim3 ) 
+					{
+						x3 = ( x3 + inc3 ) % limit3;
+						document.getElementById("quadre3").style.transform = "rotateZ(" + x3 + "deg)";
+					}
+					
+					if ( anim4 ) 
+					{
+						x4 = ( x4 + inc4 ) % limit4;
+						document.getElementById("quadre4").style.transform = "rotateY(" + x4 + "deg)";
+					}
+
+					if ( anim5 ) 
+					{
+						x5 = ( x5 + inc5 ) % limit5;
+						document.getElementById("quadre5").style.transform = "rotateX(" + x5 + "deg) rotateY(" + x5 + "deg)";
+					}
+					if ( anim6 ) 
+					{
+						x6 = ( x6 + inc6 ) % limit6;
+						document.getElementById("quadre6").style.transform = "rotateX(" + x6 + "deg) rotateY(" + x6 + "deg) rotateZ(" + x6 + "deg)";
+					}
+
+				}, 1
+			);	
+				
+		</script>
+	</body>
+</html>

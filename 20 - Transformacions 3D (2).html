@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title>Exemple CSS3 Transformacions</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: darkgreen;
+			}
+			
+			.carta {
+				position: absolute;
+				top: 100px;
+				left: 200px;
+				width: 200px;
+				height: 250px;
+				perspective: 500px;
+			}
+
+			#carta1 { left: 100px; }
+			#carta2 { left: 350px; }
+			#carta3 { left: 600px; }
+			#carta4 { left: 850px; }
+
+			.carta .davant, .carta .darrera {
+				position: absolute;
+				width: 200px;
+				height: 250px;
+				backface-visibility: hidden;
+				transition: transform 0.5s;
+			}
+			
+			.carta .davant {
+				background-image: url("imatges/card_back.svg"); 
+				background-size: 200px 250px;
+			}
+			
+			.carta:hover .davant {
+				transform: rotateY(180deg);
+			}
+			
+			.carta .darrera {
+				background-image: url("imatges/as1.svg");
+				transform: rotateY(-180deg);
+			}
+
+			.carta:hover .darrera {
+				transform: rotateY(0deg);
+			}
+			
+			#as1 { background-image: url("imatges/as1.svg"); }
+			#as2 { background-image: url("imatges/as2.svg"); }
+			#as3 { background-image: url("imatges/as3.svg"); }
+			#as4 { background-image: url("imatges/as4.svg"); }
+			
+			.imatge {
+				position: absolute;
+				top: 400px;
+				left: 100px;
+			}
+			
+			.imatge img {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 320px;
+				border: 2px solid white;
+				transform: rotate(-5deg);
+				box-shadow: 10px 10px 40px black;
+			}
+			
+			#imatge2 {
+				opacity: 0;
+				transition: opacity 2s;
+			}
+
+			#imatge2:hover {
+				opacity: 1;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="carta" id="carta1">
+			<div class="davant"></div>
+			<div class="darrera" id="as1"></div>
+		</div>
+
+		<div class="carta" id="carta2">
+			<div class="davant"></div>
+			<div class="darrera" id="as2"></div>
+		</div>
+
+		<div class="carta" id="carta3">
+			<div class="davant"></div>
+			<div class="darrera" id="as3"></div>
+		</div>
+
+		<div class="carta" id="carta4">
+			<div class="davant"></div>
+			<div class="darrera" id="as4"></div>
+		</div>
+		
+		<div class="imatge">
+			<img id="imatge1" src="imatges/0002.jpg">
+			<img id="imatge2" src="imatges/0003.jpg">
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
