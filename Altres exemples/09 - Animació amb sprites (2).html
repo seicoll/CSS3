@@ -1,0 +1,128 @@
+<html>
+	<head>
+		<title>Exemple 09 de CSS</title>
+		<meta charset="utf-8">
+		<style>
+			#sprite {
+				width: 124px;
+				height: 124px;
+				position: absolute;
+				top: 295px;
+				left: 400px;
+				background-image: url("imatges/quadres.png");
+			}
+			
+			#fons1 {
+				width: 852px;
+				height: 443px;
+				position: absolute;
+				top: 100px;
+				left: 10px;
+				background-image: url("imatges/background1.png");
+				visibility: hidden;
+			}
+
+			#fons2 {
+				width: 852px;
+				height: 443px;
+				position: absolute;
+				top: 100px;
+				left: 10px;
+				background-image: url("imatges/background2.png");
+				visibility: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<button onClick="iniciaAnimacio();">Iniciar animació</button>
+		<button onClick="aturaAnimacio();">Aturar animació</button>
+		<button onClick="canviaImatge();">Canviar imatge</button>
+		<button onClick="mostraFons();">Mostrar fons</button>
+		<div id="fons2"></div>
+		<div id="fons1"></div>
+		<div id="sprite"></div>
+		<script>
+			// Inicialitzem les variables
+			var posicioSprite = 0;
+			var posicioFons = 0;
+			var midaFotograma = 124;
+			var numFotogrames = 4;
+			var velocitat = 250;
+			var temporitzadorSprite, temporitzadorFons;
+			
+			function iniciaAnimacio()
+			{
+				// si hi havia in setInterval anterior, ens assegurem d'eliminar-lo 
+				// per no tenir-ne més d'un en marxa simultàniament
+				clearInterval( temporitzadorSprite );
+				
+				// posem el marxa el temporitzador del sprite per iniciar l'animació
+				// que aconseguim fent crides periòdiques a "canviFotograma"
+				temporitzadorSprite = setInterval( canviFotograma, velocitat );
+			}
+			
+			function aturaAnimacio()
+			{
+				// aturem el temportizador del sprite i així aturem l'animació
+				clearInterval( temporitzadorSprite );
+			}
+			
+			function canviaImatge()
+			{
+				// canviem la imatge inicial dels quadrats per els sprites d'en Yoshi
+				document.getElementById("sprite").style.backgroundImage = "url('imatges/yoshi.png')";
+				
+				// aquests nous sprites els volem animar a una velocitat més ràpida
+				// perquè l'animació es vegi correctament
+				velocitat = 100;
+			}
+			
+			function canviFotograma()
+			{
+				// calculem
+				posicioSprite = ( posicioSprite - midaFotograma ) % ( numFotogrames * midaFotograma );
+				
+				// Si volem debugar el codi, podem anar escrivint la variable 'pos' a la consola
+				// del navegador (cal activar primer el debug del javascript [F12])
+				//
+				// console.log( posicioSprite );
+				
+				// desplacem la posició d'inici del sprite dins de la imatge 
+				// per així aconseguir canviar de fotograma
+				document.getElementById("sprite").style.backgroundPosition = 
+					"left " + posicioSprite + "px top 0px";
+			}
+			
+			function mouFons()
+			{
+				// desplacem el fons dos píxels cada vegada
+				posicioFons = posicioFons - 2;
+				
+				// canviem el punt d'orígen del primer fons a la nova posició, si ens passem
+				// no passa res perquè els backgrounds es repeteixen indefinidament
+				document.getElementById("fons1").style.backgroundPosition = 
+					"left " + posicioFons + "px top 0px";
+					
+				// fem el mateix procediment amb el segon fons, però el desplacem només la meitat
+				// de píxels, així aconseguim que es mogui més lentament creant una versió 
+				// molt simple de l'efecte anomenat "scroll parallax"
+				document.getElementById("fons2").style.backgroundPosition = 
+					"left " + ( posicioFons / 2 ) + "px top 0px";
+			}
+			
+			function mostraFons()
+			{
+				// fem visibles els dos fons, que incialment teníem ocults
+				document.getElementById("fons1").style.visibility = "visible";
+				document.getElementById("fons2").style.visibility = "visible";
+				
+				// si hi havia in setInterval anterior, ens assegurem d'eliminar-lo 
+				// per no tenir-ne més d'un en marxa simultàniament
+				clearInterval( temporitzadorFons );
+
+				// posem el marxa el temporitzador del fons perquè s'actualitzi cada 10ms
+				temporitzadorFons = setInterval( mouFons, 10 );
+			}
+		</script>
+	</body>
+</html>

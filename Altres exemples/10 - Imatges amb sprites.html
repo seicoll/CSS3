@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<title>Exemple 10 de CSS</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				overflow: hidden;
+			}
+			
+			.element {
+				position: absolute;		
+				background-image: url("imatges/0001.jpg");	
+				/* border: 1px dashed black; */
+				transition: top 1s, left 1s;
+			}
+			
+			#text {
+				position: absolute;
+				top: 250px;
+				left: 250px;
+				font-size: 125px;
+				font-family: Arial;
+				color: white;
+				text-shadow: 0px 0px 15px black;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			// declarem dos arrays, un per contenir les coordenades X i l'altre per les Y
+			// de cada subelement en els que dividirem la imatge
+			var coordsX = new Array();
+			var coordsY = new Array();
+			
+			// dimensions de la imatge que volem dividir
+			var imatgeX = 640;
+			var imatgeY = 480;
+			
+			// nombre de divisions que volem per l'eix X i Y
+			var elementsX = 15;
+			var elementsY = 10;
+			
+			// calculem la mida de cada divisió a partir de la mida de la imatge
+			// i del nombre de divisions
+			var midaX = parseInt( imatgeX / elementsX );
+			var midaY = parseInt( imatgeY / elementsY );
+			
+			// aquesta variable que ens servirà per anar posant un id a cada element
+			// de manera incremental, així els podrem també indexar a l'array
+			var id = 0;
+			
+			// fem un recorregut dels elements a l'eix X
+			for ( var i = 0; i < elementsX; i++ )			
+			{
+				// fem un recorregut dels elements a l'eix Y
+				for ( var j = 0; j < elementsY; j++ )
+				{
+					// calculem la posició X,Y que correspon a l'element
+					var posX = 200 + ( i * midaX );
+					var posY = 100 + ( j * midaY );
+					
+					// calculem el desplaçament d'aquesta porció dins de la imatge sencera
+					var offsetX = -i * midaX;
+					var offsetY = -j * midaY;					
+					
+					// creem un element div a la posició corresponent que mostri la
+					// porció de la imatge que ha de tenir la subdivisió
+					document.write( "<div class='element' " + 
+									// li associem un id numèric que començarem amb la lletra "e"
+									"id='e" + id + "'" +
+									// fem que es mostri només la porció que correspon de la imatge
+									"style='background-position: left " + offsetX + "px top " + offsetY + "px; " + 
+									// assignem la amplada i alçada de la porció
+									"width: " + midaX + "px; " + 
+									"height: " + midaY + "px; " + 
+									// i la situem al punt de la pantalla que correspon
+									"top: " + posY + "px; " + 
+									"left: " + posX + "px;'>" + 
+									"</div>" );
+
+					// guardem les coordenades X i Y als arrays corresponents, ens serviran per
+					// poder recompondre la imatge quan aturem la animació
+					coordsX[ id ] = posX;
+					coordsY[ id ] = posY;
+					
+					// incrementem l'identificador de cada element
+					id++;
+				}
+			}
+			
+			function moviment()
+			{
+				// obtenim un array amb tots els elements de la classe "element"
+				var e = document.getElementsByClassName( "element" );
+				
+				// fem un recorregut per tot l'array			
+				for ( var x = 0; x < e.length; x++ )
+				{
+					// assignem una nova posició aleatòria per els eixos X i Y
+					e[x].style.left = parseInt( e[x].style.left ) + parseInt( Math.random() * 40 - 20 );
+					e[x].style.top = parseInt( e[x].style.top ) + parseInt( Math.random() * 40 - 20 );
+				}
+			}
+			
+			function reset()
+			{
+				// aturem el temporitzador que provoca el moviment
+				clearInterval( i );
+				
+				// obtenim un array amb tots els elements de la classe "element"
+				var e = document.getElementsByClassName( "element" );
+				
+				// fem un recorregut per tot l'array
+				for ( var x = 0; x < e.length; x++ )				
+				{
+					// obtenim cada element sabent que el seu id serà del tipus "e + número"
+					var element = document.getElementById( "e" + x );
+					
+					// assignem a cada element la seva coordenada original, que tenim
+					// guardada en els arrays que hem omplert quan els hem creat
+					element.style.left = coordsX[ x ];
+					element.style.top = coordsY[ x ];
+				}
+			}
+		</script>
+		<button onClick="i = setInterval( moviment, 150 );">Iniciar</button>
+		<button onClick="reset();">Aturar</button>
+		<div id='text'>SPRITES</div>
+	</body>
+</html>

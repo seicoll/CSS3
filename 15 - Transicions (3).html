@@ -1,15 +1,12 @@
 <html>
 	<head>
-		<title>Exemple 18 de CSS</title>
+		<title>Exemple Transition-timing</title>
 		<meta charset="UTF-8">
+		<link href="styles.css" rel="stylesheet">
 		<style>
-			body {
-				background-color: rgb( 200, 200, 200 );
-			}
-			
 			.transicio {
 				position: relative;
-				background-color: white;
+				/*background-color: white;*/
 				border: 2px solid black;
 				border-radius: 20px;
 				box-shadow: 0px 10px 20px grey;
@@ -101,16 +98,20 @@
 		</style>
 	</head>
 	<body>
-		<div class="transicio">
-			<h1>EASE</h1><h2>transition-timing-function: ease</h2>
-			<div id="quadre1" onClick="this.style.left='375px';"></div>
-			<button onClick="quadre1.style.left='25px';">REINICIA</button>			
+		<header><a href="http://www.w3schools.com/cssreF/css3_pr_transition-timing-function.asp">transition-timing:</a> propietat que determina la curva de velocitat de la transició;</header>
+		<div>
+			<img src="imatges/transition-timing.png"></img>
 		</div>
-
 		<div class="transicio">
 			<h1>LINEAR</h1><h2>transition-timing-function: linear</h2>
 			<div id="quadre2" onClick="this.style.left='375px';"></div>
 			<button onClick="quadre2.style.left='25px';">REINICIA</button>			
+		</div>
+		
+		<div class="transicio">
+			<h1>EASE</h1><h2>transition-timing-function: ease</h2>
+			<div id="quadre1" onClick="this.style.left='375px';"></div>
+			<button onClick="quadre1.style.left='25px';">REINICIA</button>			
 		</div>
 
 		<div class="transicio">
