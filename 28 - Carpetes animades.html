@@ -1,0 +1,189 @@
+<html>
+	<head>
+		<title>Exemple 26 de CSS</title>
+		<style>	
+			body {
+				margin: 0;
+				overflow: hidden;
+				background-image: linear-gradient(to bottom right, white, lightblue 80%);
+			}
+			
+			.carpeta {
+				position: absolute;
+				bottom: -30px;
+				width: 100%;
+				cursor: pointer;
+				transition: transform 0.5s;				
+			}
+			
+			.carpeta:hover {
+				transform: translate(0px,-30px);
+			}
+			
+			.etiqueta {
+				position: relative;
+				height: 30px;
+				top: -70px;
+				padding: 10px 20px;
+				border-bottom: 40px solid red;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				height: 0;				
+			}
+
+			.textEtiqueta {
+				position: relative;
+				top: 40px;
+				font-family: Arial;
+				font-weight: bold;
+				font-size: 20px;
+				color: white;
+			}
+			
+			.document {
+				width: 300px;
+				height: 400px;
+				background-image: linear-gradient(to bottom right, white 50%, grey);
+				box-shadow: 5px 5px 20px black;
+				position: absolute;
+				padding: 1.5em;
+				font-family: Courier;
+				font-size: 12px;
+				text-align: justify;
+				transition: bottom 0.5s;
+				bottom: -300px;
+				z-index: 35;
+			}
+			
+			.foto {
+				width: 320px;
+				border: 5px solid white;
+				box-shadow: 5px 5px 20px black;
+				position: absolute;
+				bottom: -300px;
+				transform: rotate(-5deg);
+				transition: bottom 0.5s;
+				z-index: 25;
+			}
+			
+			#foto1 { left: 200px; }		
+			#foto2 { left: 400px; }		
+			#foto3 { left: 600px; }		
+
+			#document1 {
+				transform: rotate(-15deg);
+				transition: bottom 0.5s;
+				left: 200px;
+			}
+			
+			#document2 {
+				transform: rotate(-5deg);
+				transition: bottom 0.75s;
+				left: 400px;
+			}
+
+			#document3 {
+				transform: rotate(10deg);
+				transition: bottom 1s;
+				left: 600px;
+			}
+
+			#carpeta1 {
+				background-color: red;
+				height: 200px;
+				z-index: 2;
+				z-index: 40;
+			}
+
+			#carpeta2 {
+				background-image: linear-gradient(to bottom, green, black 70%);		
+				height: 250px;
+				z-index: 30;
+			}
+
+			#carpeta3 {
+				background-image: linear-gradient(to bottom, blue, black 70%);		
+				height: 300px;
+				z-index: 20;
+			}
+
+			#carpeta4 {				
+				background-image: linear-gradient(to bottom, orange, black 70%);		
+				height: 350px;
+				z-index: 10;
+			}
+			
+			#etiqueta1 {
+				border-bottom-color: red;
+				left: 400px;
+			}
+
+			#etiqueta2 {
+				border-bottom-color: green;
+				left: 300px;
+			}
+
+			#etiqueta3 {
+				border-bottom-color: blue;
+				left: 200px;
+			}
+
+			#etiqueta4 {
+				border-bottom-color: orange;				
+				left: 100px;
+			}
+		</style>
+		<script>
+			function creaCarpeta( id, etiqueta )
+			{
+				document.write( "<div id='carpeta" + id + "' class='carpeta' onClick='documentsCarpeta(this);'>" );
+				document.write( "<span id='etiqueta" + id + "' class='etiqueta'>" );
+				document.write( "<span class='textEtiqueta'>" + etiqueta + "</span>" );
+				document.write( "</span>" );
+				document.write( "</div>" );
+			}
+			
+			function documentsCarpeta( carpeta )
+			{
+				if ( carpeta.id == "carpeta1" )
+				{
+					treureDocument('document1');
+					treureDocument('document2');
+					treureDocument('document3');
+				}
+				else
+				if ( carpeta.id == "carpeta2" )
+				{
+					treureDocument('foto1');
+					treureDocument('foto2');
+					treureDocument('foto3');
+				}
+			}
+			
+			function treureDocument( doc )
+			{
+				var d = document.getElementById( doc );
+				
+				d.style.bottom = ( d.style.bottom == "400px" ) ? "-300px" : "400px";
+			}
+		</script>
+	</head>
+	<body>
+		<script>
+			document.onmousewheel = function (e) { preventDefault(e); };
+			
+			creaCarpeta ( 1, "CONFIDENCIAL" );
+			creaCarpeta ( 2, "FOTOS" );
+			creaCarpeta ( 3, "ARXIU" );
+			creaCarpeta ( 4, "DOCUMENTS" );
+		</script>
+
+		<div id="document1" class="document">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dictum sem, eget venenatis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fringilla ullamcorper augue. Proin commodo ornare auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi pharetra libero nec tincidunt mattis. Pellentesque dignissim eros non diam elementum blandit non a lacus. Ut sit amet facilisis orci, eget fermentum dolor. Suspendisse tristique est vitae ligula dapibus, nec dapibus leo consectetur. Ut consequat sollicitudin elit id aliquam. In placerat felis at nulla elementum, a porta sem pharetra. Integer consequat tellus nec massa blandit, at venenatis lorem eleifend. Praesent vitae fringilla ante. Integer viverra libero fringilla turpis convallis mollis. Cras lobortis vulputate elit eu mollis. Integer blandit accumsan massa eget malesuada.</div>
+		<div id="document2" class="document">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dictum sem, eget venenatis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fringilla ullamcorper augue. Proin commodo ornare auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi pharetra libero nec tincidunt mattis. Pellentesque dignissim eros non diam elementum blandit non a lacus. Ut sit amet facilisis orci, eget fermentum dolor. Suspendisse tristique est vitae ligula dapibus, nec dapibus leo consectetur. Ut consequat sollicitudin elit id aliquam. In placerat felis at nulla elementum, a porta sem pharetra. Integer consequat tellus nec massa blandit, at venenatis lorem eleifend. Praesent vitae fringilla ante. Integer viverra libero fringilla turpis convallis mollis. Cras lobortis vulputate elit eu mollis. Integer blandit accumsan massa eget malesuada.</div>
+		<div id="document3" class="document">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dictum sem, eget venenatis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fringilla ullamcorper augue. Proin commodo ornare auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi pharetra libero nec tincidunt mattis. Pellentesque dignissim eros non diam elementum blandit non a lacus. Ut sit amet facilisis orci, eget fermentum dolor. Suspendisse tristique est vitae ligula dapibus, nec dapibus leo consectetur. Ut consequat sollicitudin elit id aliquam. In placerat felis at nulla elementum, a porta sem pharetra. Integer consequat tellus nec massa blandit, at venenatis lorem eleifend. Praesent vitae fringilla ante. Integer viverra libero fringilla turpis convallis mollis. Cras lobortis vulputate elit eu mollis. Integer blandit accumsan massa eget malesuada.</div>
+
+		<img id="foto1" class="foto" src="imatges/0001.jpg">
+		<img id="foto2" class="foto" src="imatges/0002.jpg">
+		<img id="foto3" class="foto" src="imatges/0003.jpg">
+	</body>
+</html>

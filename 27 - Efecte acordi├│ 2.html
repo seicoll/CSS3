@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<title>Exemple 27 de CSS</title>
+		<meta charset="UTF-8">
+		<style>	
+			@font-face {
+				font-family: aegean;
+				src: url('imatges/aegean.ttf');
+			}
+			
+			body {
+				overflow: hidden;
+			}
+			
+			.menu {
+				width: 300px;
+				height: 100%;
+				background-color: darkblue;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			
+			.itemMenu, .itemMenuActiu {
+				width: 240px;
+				height: 20px;
+				background: darkblue;
+				font-family: aegean;
+				font-weight: bold;
+				padding: 30px 30px 30px 30px;
+				color: white;
+				font-size: 30px;
+				transition: padding 1s, height 1s, background 0.5s, color 0.5s;
+				cursor: pointer;
+				overflow: hidden;
+			}
+
+			.itemMenuActiu {
+				background: blue;				
+				padding: 60px 30px 90px 30px;
+				height: calc(100% - 480px);
+			}
+			
+			.itemMenu div {
+				margin-top: 20px;
+				font-size: 14px;
+				opacity: 0;
+				transition: opacity 0.5s;
+			}
+			
+			.itemMenuActiu div {
+				margin-top: 20px;
+				font-size: 14px;
+				opacity: 1;
+			}
+			
+			#contingut {
+				position: absolute;
+				top: 0px;
+				left: 300px;
+				height: 100%;
+				overflow: hidden;
+				padding: 0 20px;
+				font-family: aegean;
+				font-size: 20px;				
+				transition: top 2s, height 2s;
+			}
+			
+			#contingut h1 {
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>		
+		<script>
+			function creaItem( id, nom )
+			{
+				document.write( '<div id="item' + id + '" class="itemMenu" onClick="seleccionaItem(this);">' );
+				document.write( nom );
+				document.write( '<div>' );
+				document.write( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dictum sem, eget venenatis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fringilla ullamcorper augue. Proin commodo ornare auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi pharetra libero nec tincidunt mattis. Pellentesque dignissim eros non diam elementum blandit non a lacus. Ut sit amet facilisis orci, eget fermentum dolor. Suspendisse tristique est vitae ligula dapibus, nec dapibus leo consectetur. Ut consequat sollicitudin elit id aliquam. In placerat felis at nulla elementum, a porta sem pharetra. Integer consequat tellus nec massa blandit, at venenatis lorem eleifend. Praesent vitae fringilla ante. Integer viverra libero fringilla turpis convallis mollis. Cras lobortis vulputate elit eu mollis. Integer blandit accumsan massa eget malesuada.' );
+				document.write( '</div>' );
+				document.write( '</div>' );
+			}
+			
+			function creaContingut( columnes, nom  )
+			{
+				document.write( '<h1>' + nom + '</h1>' );
+				document.write( '<div style="-webkit-column-count: ' + columnes + ';">' );
+				document.write( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at dictum sem, eget venenatis felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fringilla ullamcorper augue. Proin commodo ornare auctor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi pharetra libero nec tincidunt mattis. Pellentesque dignissim eros non diam elementum blandit non a lacus. Ut sit amet facilisis orci, eget fermentum dolor. Suspendisse tristique est vitae ligula dapibus, nec dapibus leo consectetur. Ut consequat sollicitudin elit id aliquam. In placerat felis at nulla elementum, a porta sem pharetra. Integer consequat tellus nec massa blandit, at venenatis lorem eleifend. Praesent vitae fringilla ante. Integer viverra libero fringilla turpis convallis mollis. Cras lobortis vulputate elit eu mollis. Integer blandit accumsan massa eget malesuada.<br><br>' );
+				document.write( 'Nam congue, magna sit amet faucibus posuere, massa nunc fringilla erat, nec convallis massa nisi vehicula dolor. Nullam diam neque, condimentum a purus a, tempus tincidunt sem. In hac habitasse platea dictumst. Aenean imperdiet eros a enim tincidunt, et vulputate magna pellentesque. Curabitur malesuada sem sed ultricies feugiat. Nullam ut libero id urna malesuada fringilla. Vestibulum et felis feugiat, tincidunt nisl ut, euismod quam. Donec vehicula dolor nisi, at mattis felis efficitur eu. Nulla a suscipit tellus. Integer mattis elit non tellus posuere, eget laoreet quam ultrices. Sed elementum vitae arcu vitae feugiat. Cras ullamcorper ac justo sit amet eleifend. Morbi egestas egestas augue id viverra. Aenean molestie tempus nisi, quis accumsan quam dapibus a.' );
+				document.write( '</div>' );
+			}
+			
+			function seleccionaItem( item )
+			{
+				var llista = document.getElementsByClassName( "itemMenuActiu" );
+				
+				for ( var i = 0; i < llista.length; i++ )
+				{
+					llista[ i ].className = "itemMenu";
+				}
+
+				item.className = "itemMenu itemMenuActiu";
+				
+				var c = document.getElementById( "contingut" );
+				
+				switch ( item.id )
+				{
+					case "item1": c.style.top = -440 * 0; c.style.height = "100%"; break;					
+					case "item2": c.style.top = -440 * 1; c.style.height = "calc(100% + 440px)"; break;					
+					case "item3": c.style.top = -440 * 2; c.style.height = "calc(100% + 2*440px)"; break;					
+					case "item4": c.style.top = -440 * 3; c.style.height = "calc(100% + 3*440px)"; break;					
+					case "item5": c.style.top = -440 * 4; c.style.height = "calc(100% + 4*440px)"; break;					
+				}
+			}
+			
+			document.write( '<div class="menu">' );
+			creaItem( 1, "PRODUCTES" );
+			creaItem( 2, "GALERIA" );
+			creaItem( 3, "OFERTES" );
+			creaItem( 4, "BOTIGA" );
+			creaItem( 5, "CONTACTE" );
+			document.write( '</div>' );
+
+			document.write( '<div id="contingut">' );
+			creaContingut( 1, "PRODUCTES" );
+			creaContingut( 3, "GALERIA" );
+			creaContingut( 2, "OFERTES" );
+			creaContingut( 3, "BOTIGA" );
+			creaContingut( 2, "CONTACTE" );
+			document.write( '</div>' );
+			
+			seleccionaItem( document.getElementById( "item1" ) );
+
+		</script>
+	</body>
+</html>

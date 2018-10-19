@@ -1,0 +1,132 @@
+<html>
+	<head>
+		<title>Exemple 25 de CSS</title>
+		<meta charset="utf-8">
+		<style>	
+			@font-face {
+				font-family: gloriaHallelujah;
+				src: url('imatges/gloriahallelujah.ttf');
+			}
+		
+			body {
+				background-image: linear-gradient(to top, #AB6A46 0%, #E6C650 100%);					
+				overflow: hidden;			
+			}
+			
+			.foto {
+				position: relative;
+				width: 320px;
+				height: 240px;
+				padding: 10px 10px 100px 10px;
+				margin: 50px 25px;
+				background-color: white;
+				box-shadow: 10px 10px 30px black;
+				transform: rotate(-15deg);
+				transition: transform 1s, box-shadow 1s;
+				cursor: pointer;
+				float: left;	
+				font-family: gloriaHallelujah;
+			}
+			
+			.foto img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.foto:hover {
+				transform: rotate(-5deg);
+				box-shadow: 0px 30px 50px black;
+				z-index: 1;
+			}
+			
+			.foto .titol, .fotoFixa .titol {
+				font-weight: bold;
+				font-size: 14pt;
+				margin-top: 4px;
+			}
+			
+			.foto .descripcio, .fotoFixa .descripcio {
+				font-size: 10pt;
+			}
+			
+			.fotoFixa {
+				position: relative;
+				width: 320px;
+				height: 240px;
+				padding: 10px 10px 100px 10px;
+				margin: 50px 25px;
+				background-color: white;
+				box-shadow: 10px 10px 30px black;
+				cursor: pointer;
+				float: left;	
+				font-family: gloriaHallelujah;
+				transform: scale(1.5,1.5);				
+				transition: transform 1s, box-shadow 1s;
+				z-index: 2;
+			}
+
+			.fotoFixa img {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+		<script>
+			// Constructor del nostre objecte "foto"
+			function foto( nom, titol, localitzacio )
+			{
+				// Comprovem si s'ha omès algun paràmetre i l'inicialitzem si cal
+				titol = titol == undefined ? "Sense títol" : titol ;
+				localitzacio = localitzacio == undefined ? "" : localitzacio ;
+				
+				// Ruta per defecte de la carpeta d'imatges
+				var ruta = "./imatges/";
+
+				// Assignem el valor de les 3 propietats
+				this.nom = ruta + nom;
+				this.titol = titol;
+				this.localitzacio = localitzacio;
+							
+				// Creem un mètode que posa la foto en pantalla
+				this.dibuixa = function () 
+				{
+					document.write( "<div class='foto' id='foto" + this.nom + "' onclick='canviaClasse(this)'>" );
+					document.write( "<img src='" + this.nom + "'>" );
+					document.write( "<div class='titol'>" + this.titol + "</div>" );
+					document.write( "<div class='descripcio'>" + this.localitzacio + "</div>" );
+					document.write( "</div>" );
+				}
+			}
+			
+			// Funció que intercanvia la classe CSS d'un objecte per una altra
+			// Així aconseguim fer el zoom de les fotos només canviant-los la classe
+			function canviaClasse( obj )
+			{
+				// Si la classe actual és 'foto' la canviem per 'fotoFixa', que és la 
+				// ampliació de la foto, altrament retornem a la classe 'foto' original
+				obj.className = ( obj.className == "foto" ) ? "fotoFixa" : "foto";
+			}
+		</script>
+	</head>
+	<body>
+		<script>
+			// Creem uns quants objectes foto amb els seus paràmetres
+			// En el mateix moment de crear l'objecte cridem el seu 
+			// mètode "dibuixa()" perquè ens el posi en pantalla
+			
+			foto1 = new foto( "0001.jpg", "Antelope Canyon", "Estats Units" ).dibuixa();
+			foto2 = new foto( "0002.jpg", "Muntanyes Prokletije", "Albània" ).dibuixa();
+			foto3 = new foto( "0003.jpg", "Bales de palla" ).dibuixa();
+			foto4 = new foto( "0004.jpg", "Prats verds" ).dibuixa();
+			foto5 = new foto( "0005.jpg", "Platges de Hawaii", "Estats Units" ).dibuixa();
+			foto6 = new foto( "0006.jpg", "Flors liles" ).dibuixa();
+			foto7 = new foto( "0007.jpg", "Riu Lewis", "Estats Units" ).dibuixa();
+			
+			// Com que són objectes, podem accedir a les seves propietats i mètodes
+			foto8 = new foto( "0008.jpg" );			
+			foto8.titol = "Vista del mont Fuji";
+			foto8.localitzacio = "Japó";
+			foto8.dibuixa();
+
+		</script>
+	</body>
+</html>
