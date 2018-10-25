@@ -1,4 +1,5 @@
 <html>
+<<<<<<< HEAD
 	<head>
 		<title>Exemple 21 de CSS</title>
 		<meta charset="UTF-8">
@@ -149,4 +150,263 @@
 			<div id="quadre5"><img src="imatges/css3-logo.png"></img></div>
 		</div>
 	</body>
+=======
+
+<head>
+	<title>Exemple 21 de CSS</title>
+	<meta charset="UTF-8">
+	<link href="styles.css" rel="stylesheet">
+	<style>
+		.animacio {
+			position: relative;
+			background-color: white;
+			border: 2px solid black;
+			border-radius: 20px;
+			box-shadow: 0px 10px 20px grey;
+			width: 500px;
+			height: 400px;
+			margin: 10px;
+			float: left;
+		}
+		
+		.animacio h1 {
+			width: 100%;
+			margin: 10px 0 0 0;
+			text-align: center;
+			font-family: Arial;
+			font-weight: bold;
+			font-size: 32px;
+		}
+		
+		.animacio h2 {
+			width: 100%;
+			margin: 5px 0 0 0;
+			text-align: center;
+			font-family: Arial;
+			font-weight: normal;
+			font-size: 16px;
+		}
+		
+		.animacio div {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			transition: all 1s;
+			font-family: Arial;
+			font-size: 90px;
+			text-align: center;
+			color: white;
+		}
+		
+		@keyframes animacio {
+			0% {
+				top: 100px;
+				left: 50px;
+				background-color: green;
+			}
+			25% {
+				top: 100px;
+				left: 350px;
+				background-color: red;
+			}
+			50% {
+				top: 250px;
+				left: 350px;
+				background-color: blue;
+			}
+			75% {
+				top: 250px;
+				left: 50px;
+				background-color: yellow;
+			}
+			100% {
+				top: 100px;
+				left: 50px;
+				background-color: green;
+			}
+		}
+		
+		#quadre1 {
+			background-color: green;
+			left: 50px;
+			top: 100px;
+			-webkit-animation: animacio 5s linear;
+			animation: animacio 5s linear;
+		}
+		
+		#quadre2 {
+			left: 50px;
+			top: 100px;
+			-webkit-animation: animacio 5s linear infinite;
+			animation: animacio 5s linear infinite;
+		}
+		
+		#quadre3 {
+			left: 50px;
+			top: 100px;
+			-webkit-animation: animacio 5s linear infinite alternate;
+			animation: animacio 5s linear infinite alternate;
+		}
+		/*ANIMACIÓ TEXT*/
+		
+		@-webkit-keyframes animacioText {
+			0% {
+				top: 300px;
+				font-size: 10px;
+			}
+			30% {
+				top: 300px;
+				font-size: 10px;
+			}
+			75% {
+				top: 100px;
+				font-size: 50px;
+			}
+			100% {
+				top: 100px;
+				color: blue;
+				font-size: 100px;
+			}
+		}
+		
+		@keyframes animacioText {
+			0% {
+				top: 300px;
+				font-size: 10px;
+			}
+			30% {
+				top: 300px;
+				font-size: 10px;
+			}
+			75% {
+				top: 100px;
+				font-size: 50px;
+			}
+			100% {
+				top: 100px;
+				color: blue;
+				font-size: 100px;
+			}
+		}
+		
+		#text1 {
+			font-weight: bold;
+			color: green;
+			width: 100%;
+			text-align: center;
+			-webkit-animation: animacioText 1s ease-in-out infinite alternate;
+			animation: animacioText 1s ease-in-out infinite alternate;
+		}
+		/*ANIMACIÓ IMATGE*/
+		
+		#quadre5 {
+			animation: animacio5 3s ease-in-out infinite;
+			position: absolute;
+			top: 150px;
+			width: 100%;
+			margin: 0 auto;
+		}
+		
+		@keyframes animacio5 {
+			0% {
+				transform: rotate(-30deg);
+			}
+			20% {
+				transform: scale(0.9);
+			}
+			50% {
+				transform: rotate(30deg);
+			}
+			80% {
+				transform: scale(0.9);
+			}
+			100% {
+				transform: rotate(-30deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<header><a href="http://www.w3schools.com/css/css3_animations.asp">animation:</a> name duration timing-function delay interaction direction;</header>
+	<p>Una animació permet que un element canviï <b>gradualment</b> d'un estil a un altre.
+		<br> En les transicions només podiem definir un estat inicial i us estat final de l'element.
+		<br> En canvi amb les animacions podem indicar diferents estats pels qual passarà l'element.
+		<br><br> Per a això, ha d'especificar varies coses:
+		<ul>
+			<li><b>name:</b> nom de l'animació definida amb un @keyframes</li>
+			<li><b>duration:</b> la durada de l'animació</li>
+			<li><b>delay: </b>temps que ha de passar abans que comenci l'animació</li>
+			<li><b>interaction: </b>nombre de vegades que s'ha de reproduir l'animació. Per exemple: 1 | infinite</li>
+			<li><b>direction: reverse | alternate</b></li>
+		</ul>
+	</p>
+	<h2>Exemple Animació 1</h2>
+	<pre>
+	#quadre1
+	{
+		animation: animacio 5s linear;	
+	}
+	
+	@keyframes animacio {
+		0% {
+			top: 100px;
+			left: 50px;
+			background-color: green;
+		}
+		25% {
+			top: 100px;
+			left: 350px;
+			background-color: red;
+		}
+		50% {
+			top: 250px;
+			left: 350px;
+			background-color: blue;
+		}
+		75% {
+			top: 250px;
+			left: 50px;
+			background-color: yellow;
+		}
+		100% {
+			top: 100px;
+			left: 50px;
+			background-color: green;
+		}
+	}
+	</pre>
+	<div class="animacio">
+		<h1>ANIMACIÓ 1</h1>
+		<h2>Si no indiquem el contrari es reprodueix una sola vegada</h2>
+		<div id="quadre1" onClick="this.webkitAnimation='animacio 5s;'"></div>
+	</div>
+
+	<div class="animacio">
+		<h1>ANIMACIÓ 2</h1>
+		<h2>amb "<u>infinite</u>" la animació es repeteix infinitament</h2>
+		<div id="quadre2"></div>
+	</div>
+
+	<div class="animacio">
+		<h1>ANIMACIÓ 3</h1>
+		<h2>amb "<u>alternate</u>" la animació es repeteix a la inversa quan acaba</h2>
+		<div id="quadre3"></div>
+	</div>
+
+	<div class="animacio">
+		<h1>ANIMACIÓ 4</h1>
+		<h2>Animació infinita de text</h2>
+		<div id="text1">TEXT</div>
+	</div>
+
+	<div class="animacio">
+		<h1>ANIMACIÓ 5</h1>
+		<h2>Animació imatge</h2>
+		<div id="quadre5"><img src="imatges/css3-logo.png"></img>
+		</div>
+	</div>
+</body>
+
+>>>>>>> 166571b1a8d319683acb15587efeacc4eced4044
 </html>
