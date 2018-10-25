@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Exemple CSS3 Animació d'ombres</title>
+		<meta charset="utf-8">
+		<style>
+			body {
+				cursor: none;
+			}
+			
+			.quadre {
+				width: 150px;
+				height: 150px;
+				background-color: red;
+				margin: 200px;
+				border-radius: 75px;
+				float: left;			
+			}
+			
+			#llum {
+				position: absolute;
+				width: 64px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="quadre"></div>
+		<img src="imatges/sun.png" id="llum">
+		<script>
+			document.onmousemove = movimentMouse;
+			
+			function movimentMouse( e )
+			{
+				var x = e.pageX;
+				var y = e.pageY;
+				
+				var oX = Math.floor( ( x - 275 + 32 ) / 5 );
+				var oY = Math.floor( ( y - 275 + 32 ) / 5 );
+				var blur = Math.max( Math.abs( oX ), Math.abs( oY ) );
+
+				var oX2 = Math.floor( oX / 5 );
+				var oY2 = Math.floor( oY / 5 );
+				var blur2 = Math.floor( blur / 1.5 );
+				
+				document.getElementById( "llum" ).style[ "left" ] = x;
+				document.getElementById( "llum" ).style[ "top" ] = y;
+
+				var ombres = document.getElementsByClassName( "quadre" );
+				
+				for ( var i = 0; i < ombres.length; i++ )
+				{
+					ombres[ i ].style[ "box-shadow" ] = -oX + "px " + -oY + "px " + blur + "px grey, " +
+														oX2 + "px " + oY2 + "px " + blur2 + "px black inset";
+				}
+			}
+		</script>
+	</body>
+</html>

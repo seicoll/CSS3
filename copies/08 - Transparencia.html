@@ -1,0 +1,162 @@
+<html>
+
+<head>
+	<title>Exemple CSS Transparència</title>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			font-family: Arial;
+		}
+		
+		header {
+			font-size: 25px;
+			font-family: consolas;
+			font-weight: bold;
+			background-color: #ccc;
+			padding: 20px;
+			text-align: center;
+			margin-bottom: 15px;
+			border-radius: 15px;
+		}
+		
+		div {
+			border: 1px solid black;
+			width: 256px;
+			height: 192px;
+			position: absolute;
+		}
+		
+		div.fons {
+			background-image: url('imatges/zebra.jpg');
+		}
+		
+		div.capa {
+			opacity: 0.5;
+		}
+		
+		#f1 {
+			top: 110px;
+			left: 10px;
+		}
+		
+		#f2 {
+			top: 315px;
+			left: 10px;
+		}
+		
+		#f3 {
+			top: 315px;
+			left: 280px;
+		}
+		
+		#f4 {
+			top: 515px;
+			left: 10px;
+		}
+		
+		#f5 {
+			top: 515px;
+			left: 280px;
+		}
+		
+		#f6 {
+			top: 715px;
+			left: 10px;
+		}
+		/*===========================*/
+		div.requadres
+		{
+			border:none;
+			top:950px;
+			width:100%;
+		}
+		div[class^="opacity"] {
+			display: inline-block;
+			position:static;
+			
+			height: 100px;
+			width: 100px;
+			background: #d58a3c;
+		}
+		
+		div.opacity100 {
+			opacity: 1;
+		}
+		
+		div.opacity90 {
+			opacity: 0.9;
+		}
+		
+		div.opacity80 {
+			opacity: 0.8;
+		}
+		
+		div.opacity70 {
+			opacity: 0.7;
+		}
+		
+		div.opacity60 {
+			opacity: 0.6;
+		}
+		
+		div.opacity50 {
+			opacity: 0.5;
+		}
+		
+		div.opacity40 {
+			opacity: 0.4;
+		}
+		
+		div.opacity30 {
+			opacity: 0.3;
+		}
+		
+		div.opacity20 {
+			opacity: 0.2;
+		}
+		
+		div.opacity10 {
+			opacity: 0.1;
+		}
+		
+		div.opacity0 {
+			opacity: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<header><a href="http://www.w3schools.com/cssref/css3_pr_opacity.asp">opacity:</a> number|initial|inherit;</header>
+	<section>
+		<div class="fons" id="f1"></div>
+		<div class="fons" id="f2"></div>
+		<div class="fons" id="f3"></div>
+		<div class="fons" id="f4"></div>
+		<div class="fons" id="f5"></div>
+		<div class="fons" id="f6"></div>
+
+
+		<div class="capa" style="background-color: red" id="f2"></div>
+		<div class="capa" style="background-color: green" id="f3"></div>
+		<div class="capa" style="background-color: blue" id="f4"></div>
+		<div class="capa" style="background-color: yellow" id="f5"></div>
+		<div class="capa" style="background-image: url('imatges/zebra.jpg'); left: 128px; " id="f6"></div>
+
+		<div class="requadres">
+		<div class="opacity100">opacity: 1</div>
+		<div class="opacity90">opacity: 0.9</div>
+		<div class="opacity80">opacity: 0.8</div>
+		<div class="opacity70">opacity: 0.7</div>
+		<div class="opacity60">opacity: 0.6</div>
+		<div class="opacity50">opacity: 0.5</div>
+		<div class="opacity40">opacity: 0.4</div>
+		<div class="opacity30">opacity: 0.3</div>
+		<div class="opacity20">opacity: 0.2</div>
+		<div class="opacity10">opacity: 0.1</div>
+		<div class="opacity0">opacity: 0</div>
+		</div>
+
+	</section>
+</body>
+
+</html>
